@@ -7,7 +7,7 @@
         .intro-text
           %span.name La gordi Boda
           %hr.star-light
-          %span.skills Celada - Cantabria - Spain
+          %span.skills Celada - 10 Septiembre - Spain
 
 / Portfolio Grid Section
 %section#portfolio
@@ -15,7 +15,7 @@
     .row
       .col-lg-12.text-center
         %h2 Portfolio
-        %hr.star-primary/
+        %hr.star-primary
     .row
       .col-sm-4.portfolio-item
         %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal1"}
@@ -55,28 +55,41 @@
           = image_tag "portfolio/submarine.png", class: "img-responsive"
 
 / About Section
-%section#about.success
+%section#info.success
   .container
     .row
       .col-lg-12.text-center
-        %h2 About
-        %hr.star-light/
-    .row
-      .col-lg-4.col-lg-offset-2
-        %p Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.
-      .col-lg-4
-        %p Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!
-      .col-lg-8.col-lg-offset-2.text-center
-        %a.btn.btn-lg.btn-outline{:href => "#"}
-          %i.fa.fa-download
-          Download Theme
+        %h2 Info
+        %hr.star-light
+    .row.text-center
+      .col-md-6
+        %h3 Dressing Code
+        %p La boda va a ser de mañana, en un jardín.
+        %p Los hombres tendrán que ir de traje
+        %p
+          Las mujeres pueden ir de corto o largo,
+          %br
+          y se les recomienda ir planas
+        %p Recomendamos llevar jersey o abrigo para la tarde
+        %p Recomendamos ver las predicciones del tiempo
+      .col-md-6
+        %h3 Fechas
+        %p la Boda es el día 10 de Septiembre
+        %p Comenzará a las 13:00
+        %p Los novios estarán en celada desde el 7 de Septiembre
+        %p
+          Cualquier invitado es bienvenido desde el 7 de Septiembre,
+          %br
+          siempre que pueda/quiera ayudar en la organización :)
+        %p Rogamos avisar si se va a venir antes del viernes día 9
+
 / Contact Section
-%section#contact
+%section#contacto
   .container
     .row
       .col-lg-12.text-center
         %h2 Contact Me
-        %hr.star-primary/
+        %hr.star-primary
     .row
       .col-lg-8.col-lg-offset-2
         / To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.
@@ -107,47 +120,3 @@
           .row
             .form-group.col-xs-12
               %button.btn.btn-success.btn-lg{:type => "submit"} Send
-/ Footer
-%footer.text-center
-  .footer-above
-    .container
-      .row
-        .footer-col.col-md-4
-          %h3 Location
-          %p
-            3481 Melrose Place
-            %br>/
-            Beverly Hills, CA 90210
-        .footer-col.col-md-4
-          %h3 Around the Web
-          %ul.list-inline
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-facebook
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-google-plus
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-twitter
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-linkedin
-            %li
-              %a.btn-social.btn-outline{:href => "#"}
-                %i.fa.fa-fw.fa-dribbble
-        .footer-col.col-md-4
-          %h3 About Freelancer
-          %p
-            Freelance is a free to use, open source Bootstrap theme created by
-            = succeed "." do
-              %a{:href => "http://startbootstrap.com"} Start Bootstrap
-  .footer-below
-    .container
-      .row
-        .col-lg-12
-          Copyright © Your Website 2014
-/ Scroll to Top Button (Only visible on small and extra-small screen sizes)
-.scroll-top.page-scroll.visible-xs.visible-sm
-  %a.btn.btn-primary{:href => "#page-top"}
-    %i.fa.fa-chevron-up
