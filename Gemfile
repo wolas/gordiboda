@@ -27,6 +27,7 @@ group :development do
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'erb2haml'
 end
 group :development, :test do
   gem 'rubocop'
