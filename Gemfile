@@ -5,15 +5,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-end
-group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'devise'
 gem 'figaro'
 gem 'haml-rails'
@@ -21,7 +16,17 @@ gem 'pg'
 gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
+gem 'font-awesome-rails'
+
+
+group :development, :test do
+  gem 'byebug'
+  gem 'rubocop'
+end
+
 group :development do
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
   gem 'better_errors'
   gem 'html2haml'
   gem 'hub', :require=>nil
@@ -29,9 +34,7 @@ group :development do
   gem 'rails_layout'
   gem 'erb2haml'
 end
-group :development, :test do
-  gem 'rubocop'
-end
+
 group :production do
   gem 'rails_12factor'
 end
