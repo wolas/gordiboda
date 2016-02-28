@@ -45,3 +45,30 @@ group :development do
   gem 'spring'
 end
 
+
+gem 'bootstrap-sass'
+gem 'devise'
+gem 'figaro'
+gem 'haml-rails'
+gem 'pg'
+gem 'simple_form'
+gem 'unicorn'
+gem 'unicorn-rails'
+
+group :development do
+  gem 'better_errors'
+  gem 'html2haml'
+  gem 'hub', :require=>nil
+  gem 'quiet_assets'
+  gem 'rails_apps_pages'
+  gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'rubocop'
+end
+
+group :production do
+  gem 'rails_12factor'
+end
+
