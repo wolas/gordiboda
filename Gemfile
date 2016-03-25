@@ -23,6 +23,7 @@ gem 'bootstrap_form'
 group :development, :test do
   gem 'byebug'
   gem 'rubocop'
+  gem 'figaro'
 end
 
 group :development do
