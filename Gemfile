@@ -18,6 +18,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap_form'
+gem 'puma'
 
 
 group :development, :test do
