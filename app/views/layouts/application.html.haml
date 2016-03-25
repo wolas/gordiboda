@@ -37,17 +37,15 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
-            %li.hidden
-              = link_to "", "#page-top"
-            %li.page-scroll
-              = link_to "Lista", "#portfolio"
-            %li.page-scroll
-              = link_to "Info", "#info"
-            %li.page-scroll
-              = link_to "Contacto", "#contacto"
+            %li.hidden= link_to "", "#page-top"
+            %li.page-scroll= link_to "Lista", "#portfolio"
+            %li.page-scroll= link_to "Info", "#info"
+            %li.page-scroll= link_to "Contacto", "#contacto"
+            %li= link_to "Home", root_path
         / /.navbar-collapse
       / /.container-fluid
 
+    = yield(:header)
     = yield
 
     / Footer
@@ -83,7 +81,7 @@
       .footer-below
         .container
           .row
-            .col-lg-12 &copy; GordiBoda 2016
+            .col-lg-12= link_to "© GordiBoda 2016", new_user_session_path
     / Scroll to Top Button (Only visible on small and extra-small screen sizes)
     .scroll-top.page-scroll.visible-xs.visible-sm
       %a.btn.btn-primary{:href => "#page-top"}

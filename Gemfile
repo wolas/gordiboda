@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'unicorn'
 gem 'unicorn-rails'
 gem 'font-awesome-rails'
+gem 'bootstrap_form'
 
 
 group :development, :test do

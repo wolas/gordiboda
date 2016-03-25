@@ -1,13 +1,13 @@
-/ Header
-%header
-  .container
-    .row
-      .col-lg-12
-        = image_tag "profile.png", class: "img-responsive"
-        .intro-text
-          %span.name La gordi Boda
-          %hr.star-light
-          %span.skills Celada - 10 Septiembre - Spain
+- content_for(:header) do
+  %header
+    .container
+      .row
+        .col-lg-12
+          = image_tag "profile.png", class: "img-responsive"
+          .intro-text
+            %span.name La gordi Boda
+            %hr.star-light
+            %span.skills Celada - 10 Septiembre - Spain
 
 / Portfolio Grid Section
 %section#portfolio
@@ -72,16 +72,17 @@
           y se les recomienda ir planas
         %p Recomendamos llevar jersey o abrigo para la tarde
         %p Recomendamos ver las predicciones del tiempo
+
       .col-md-6
         %h3 Fechas
-        %p la Boda es el día 10 de Septiembre
+        %p La Boda es el día 10 de Septiembre
         %p Comenzará a las 13:00
-        %p Los novios estarán en celada desde el 7 de Septiembre
+        %p Los novios estarán en Celada desde el 7 de Septiembre
         %p
           Cualquier invitado es bienvenido desde el 7 de Septiembre,
           %br
           siempre que pueda/quiera ayudar en la organización :)
-        %p Rogamos avisar si se va a venir antes del viernes día 9
+        %p Rogamos avisar si se va a venir antes del viernes día 9 de Septiembre
 
 / Contact Section
 %section#contacto
@@ -98,24 +99,24 @@
           .row.control-group
             .form-group.col-xs-12.floating-label-form-group.controls
               %label Name
-              %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Name", :required => "", :type => "text"}/
+              %input#name.form-control{"data-validation-required-message" => "Please enter your name.", :placeholder => "Name", :required => "", :type => "text"}
               %p.help-block.text-danger
           .row.control-group
             .form-group.col-xs-12.floating-label-form-group.controls
               %label Email Address
-              %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Email Address", :required => "", :type => "email"}/
+              %input#email.form-control{"data-validation-required-message" => "Please enter your email address.", :placeholder => "Email Address", :required => "", :type => "email"}
               %p.help-block.text-danger
           .row.control-group
             .form-group.col-xs-12.floating-label-form-group.controls
               %label Phone Number
-              %input#phone.form-control{"data-validation-required-message" => "Please enter your phone number.", :placeholder => "Phone Number", :required => "", :type => "tel"}/
+              %input#phone.form-control{"data-validation-required-message" => "Please enter your phone number.", :placeholder => "Phone Number", :required => "", :type => "tel"}
               %p.help-block.text-danger
           .row.control-group
             .form-group.col-xs-12.floating-label-form-group.controls
               %label Message
               %textarea#message.form-control{"data-validation-required-message" => "Please enter a message.", :placeholder => "Message", :required => "", :rows => "5"}
               %p.help-block.text-danger
-          %br/
+          %br
           #success
           .row
             .form-group.col-xs-12
