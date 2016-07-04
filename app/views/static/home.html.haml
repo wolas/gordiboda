@@ -19,7 +19,7 @@
     .row
       - @products.each do |p|
         .col-sm-4.portfolio-item
-          %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal#{p.id}"}
+          %a.portfolio-link{"data-toggle" => "modal", :href => ".portfolioModal"}
             .caption
               .caption-content
                 %i.fa.fa-search-plus.fa-3x
@@ -29,19 +29,18 @@
             = p.price
             €
 
-- @products.each do |p|
-  .modal.fade{:id => "portfolioModal#{p.id}", "aria-hidden" => "true", "aria-labelledby" => "portfolioModal#{p.id}", :role => "dialog", :tabindex => "-1"}
-    .modal-dialog{:role => "document"}
-      .modal-content
-        .modal-header
-          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true"} &times;
-          %h4#myModalLabel.modal-title= p.name
-        .modal-body
-          = render partial: 'shopping_cart'
-        .modal-footer
-          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Cerrar
-          %button.btn.btn-primary{:type => "button"} Comprar
+.portfolioModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "portfolioModal", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+        %h4#myModalLabel.modal-title AÑADIR REGALO AL CARRITO
+      .modal-body
+        carrito
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Cerrar
+        %button.btn.btn-primary{:type => "button"} Comprar
 
 / About Section
 %section#info.success
