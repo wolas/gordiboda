@@ -16,52 +16,32 @@
       .col-lg-12.text-center
         %h2 Lista de bodas
         %hr.star-primary
-        %p.text-center
-          %em
-            Pronto encontrarás aquí nuestra original lista de bodas.
-            %br
-            Recibirás un email en cuanto esté terminada.
-            %br
-            Seguro que te va a sorprender.
-            %br
-          = "\xF0\x9F\x98\x8A"
-    .row.modal
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal1"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          = image_tag "portfolio/cabin.png", class: "img-responsive"
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal2"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          = image_tag "portfolio/cake.png", class: "img-responsive"
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal3"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          = image_tag "portfolio/circus.png", class: "img-responsive"
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal4"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          = image_tag "portfolio/game.png", class: "img-responsive"
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal5"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          = image_tag "portfolio/safe.png", class: "img-responsive"
-      .col-sm-4.portfolio-item
-        %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal6"}
-          .caption
-            .caption-content
-              %i.fa.fa-search-plus.fa-3x
-          = image_tag "portfolio/submarine.png", class: "img-responsive"
+    .row
+      - @products.each do |p|
+        .col-sm-4.portfolio-item
+          %a.portfolio-link{"data-toggle" => "modal", :href => "#portfolioModal#{p.id}"}
+            .caption
+              .caption-content
+                %i.fa.fa-search-plus.fa-3x
+            = image_tag "portfolio/cake.png", class: "img-responsive"
+          %p.text-center
+            = p.name
+            = p.price
+            €
+
+- @products.each do |p|
+  .modal.fade{:id => "portfolioModal#{p.id}", "aria-hidden" => "true", "aria-labelledby" => "portfolioModal#{p.id}", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{:role => "document"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+          %h4#myModalLabel.modal-title= p.name
+        .modal-body
+          \...
+        .modal-footer
+          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary{:type => "button"} Save changes
 
 / About Section
 %section#info.success
