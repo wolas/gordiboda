@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'static/home'
 
+  resources :lists, only: [:index]
+  resources :carts, only: [:show]
   devise_for :users
 
+  get 'static/home'
   root "static#home"
 end
