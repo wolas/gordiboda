@@ -38,10 +38,10 @@
             %span{"aria-hidden" => "true"} &times;
           %h4#myModalLabel.modal-title= p.name
         .modal-body
-          \...
+          = render partial: 'shopping_cart'
         .modal-footer
-          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-          %button.btn.btn-primary{:type => "button"} Save changes
+          %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Cerrar
+          %button.btn.btn-primary{:type => "button"} Comprar
 
 / About Section
 %section#info.success
