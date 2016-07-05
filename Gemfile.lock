@@ -115,6 +115,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.99.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
@@ -126,6 +127,10 @@ GEM
       ast (~> 2.2)
     pg (0.18.4)
     powerpack (0.1.1)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     puma (3.2.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
@@ -187,6 +192,7 @@ GEM
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    slop (3.6.0)
     spring (1.6.4)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -241,6 +247,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   pg
+  pry
   puma
   quiet_assets
   rails (= 4.2.5)

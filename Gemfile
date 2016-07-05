@@ -25,6 +25,7 @@ gem 'activemerchant'
 group :development, :test do
   gem 'byebug'
   gem 'rubocop'
+  gem 'pry'
 end
 
 group :development do

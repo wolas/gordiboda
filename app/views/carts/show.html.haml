@@ -1,0 +1,20 @@
+.row
+  .col-lg-3
+      - if current_order.empty?
+        %h3 Carrito vacío
+        %p
+          Debes añadir artículos para poder continuar
+      - else
+        %h3 Déjanos tus datos
+        %p
+          blablablablabla
+
+        #order-form
+          = form_for @order do |f|
+            = f.text_field :buyer_name, placeholder: "Nombre"
+            = f.email_field :buyer_email, placeholder: "Email"
+            = f.text_field :contributors, placeholder: "# Colaboradores"
+            = f.submit "Comprar", class: "button"
+
+  .col-lg-9
+    = render "shopping_cart"

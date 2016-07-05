@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   root "static#home"
 
   resources :products, only: [:index]
-  resources :cart, only: [:show]
+  resources :carts
   resources :order_items, only: [:create, :update, :destroy]
-
 
 end
