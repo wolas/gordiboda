@@ -5,8 +5,7 @@ class OrderItem < ActiveRecord::Base
   before_save :finalize
 
   def unit_price
-    # persisted? ? self[:unit_price] : product.price
-    product.price
+    persisted? ? self[:unit_price] : product.price
   end
 
   def total_price

@@ -12,7 +12,7 @@
             blablablablabla
 
           #order-form
-            = form_for @order do |f|
+            = form_for @order , url: pay_cart_path, method: :post do |f|
               = f.text_field :buyer_name, placeholder: "Nombre"
               = f.email_field :buyer_email, placeholder: "Email"
               = f.text_field :contributors, placeholder: "# Colaboradores"
