@@ -19,7 +19,7 @@ gem 'unicorn-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap_form'
 gem 'puma'
-gem 'activemerchant'
+gem 'paypal-sdk-rest'
 
 
 group :development, :test do
