@@ -1,1 +1,15 @@
 %h1 Admin Area
+
+%h3 Welcome, #{current_user.name}. What do u wanna do?
+
+.container
+  .row
+    .col-lg-4.user-options
+      = link_to image_tag( 'edit.png'), edit_admin_user_path(current_user.id)
+      %p Edit my user
+    .col-lg-4.user-options
+      = link_to image_tag( 'gift.png'), new_admin_product_path
+      %p Create products
+    .col-lg-4.user-options
+      = link_to image_tag( 'new.png'), new_admin_user_path
+      %p Create users

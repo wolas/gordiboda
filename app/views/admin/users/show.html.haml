@@ -1,0 +1,15 @@
+.float_right
+  = link_to '', edit_admin_user_path(@user), class: "edit"
+  = link_to '', admin_users_path, class: "back"
+
+%h1= @user.name
+
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Username:
+  = @user.username
+%p
+  %b Password:
+  = @user.password

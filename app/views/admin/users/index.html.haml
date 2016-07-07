@@ -1,0 +1,19 @@
+.float_right
+  = link_to '', new_admin_user_path, class: "new"
+
+%h1 Listing users
+
+%table
+  %tr
+    %th.left Name
+    %th.left Email
+    %th.left Username
+    %th
+
+  - @users.each do |user|
+    %tr.clickable{data: {url: url_for([:admin, user])}}
+      %td.left= user.name
+      %td.left= user.email
+      %td.left= user.username
+      %td.right= link_to '', edit_admin_user_path(user), class: "edit"
+

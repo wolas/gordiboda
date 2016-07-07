@@ -1,0 +1,17 @@
+#form
+  = form_for [:admin, @user] do |f|
+    = render "admin/admin/errors", item: @user
+
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
+      = f.label :password
+      = f.password_field :password
+    .actions
+      = f.submit 'Save'
+
+= link_to 'Back', :back
