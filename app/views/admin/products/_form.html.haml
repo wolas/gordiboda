@@ -1,0 +1,12 @@
+= simple_form_for([:admin, @product], html: { multipart: true }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :price
+    = f.input :stock
+    = f.input :picture, as: :file
+    = f.input :active
+
+  .form-actions
+    = f.button :submit

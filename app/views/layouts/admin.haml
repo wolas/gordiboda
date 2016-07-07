@@ -33,61 +33,16 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "#page-top"} Gordi Boda
+          = link_to "Gordiboda Admin", admin_root_path, class: "navbar-brand"
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li.hidden= link_to "", "#page-top"
-            %li.page-scroll= link_to "Lista", "#portfolio"
-            %li.page-scroll= link_to "Info", "#info"
-            %li.page-scroll= link_to "Email", "#email"
-            %li.page-scroll= link_to "Mapa", "#map"
-            %li= link_to "Home", root_path
+            %li.page-scroll= link_to "Products", admin_products_path
+            %li= link_to "Public Home", root_path
         / /.navbar-collapse
       / /.container-fluid
 
-    = yield(:header)
-    = yield
-
-    / Footer
-    %footer.text-center
-      .footer-above
-        .container
-          .row
-            .footer-col.col-md-4
-              %h3 Dirección
-              %p
-                Calle El Callejo 1
-                %br
-                Celada de los Calderones
-                %br
-                39210, Cantabria
-            .footer-col.col-md-4
-              %h3 No compartas
-              %ul.list-inline
-                %li
-                  %a.btn-social.btn-outline{:href => "#"}
-                    %i.fa.fa-fw.fa-facebook
-                %li
-                  %a.btn-social.btn-outline{:href => "#"}
-                    %i.fa.fa-fw.fa-google-plus
-                %li
-                  %a.btn-social.btn-outline{:href => "#"}
-                    %i.fa.fa-fw.fa-twitter
-            .footer-col.col-md-4
-              %h3 Teléfonos
-              %p Jacobo - 630031143
-              %p Paloma - 696361696
-
-      .footer-below
-        .container
-          .row
-            .col-lg-12
-              - if current_user
-                = link_to "Admin", admin_root_path
-              - else
-                = link_to "© GordiBoda 2016", new_user_session_path
-    / Scroll to Top Button (Only visible on small and extra-small screen sizes)
-    .scroll-top.page-scroll.visible-xs.visible-sm
-      %a.btn.btn-primary{:href => "#page-top"}
-        %i.fa.fa-chevron-up
+    %section.container
+      = yield(:header)
+      = yield

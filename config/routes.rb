@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-
+  resources :products
   devise_for :users
-
 
   get 'static/home'
   root "static#home"
@@ -17,6 +16,11 @@ Rails.application.routes.draw do
     post :pay
     get :order_complete
     get :order_cancelled
+  end
+
+  namespace :admin do
+    root to: 'admin#index'
+    resources :products
   end
 
 end

@@ -22,7 +22,7 @@
           = form_tag(controller: :order_items, action: :create, remote: true) do
             = hidden_field_tag 'order_item[product_id]', p.id
             = hidden_field_tag 'order_item[quantity]', 1
-            = image_submit_tag("portfolio/cake.png", class: "img-responsive")
+            = image_submit_tag(p.picture.url(:thumb), class: "img-responsive")
 
           %p.text-center
             = p.name
