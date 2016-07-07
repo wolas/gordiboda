@@ -12,6 +12,15 @@ class OrderItem < ActiveRecord::Base
     unit_price * quantity
   end
 
+  def to_paypal_params
+    {
+      :name => product.name,
+      :price => sprintf("%0.2f", unit_price),
+      :currency => "EUR",
+      :quantity => quantity
+    }
+  end
+
   private
 
   def finalize

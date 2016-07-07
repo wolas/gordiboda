@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
 
   before_save :update_subtotal
 
+  attr_accessor :return_url, :cancel_url
+
   def empty?
     order_items.empty?
   end
@@ -14,6 +16,28 @@ class Order < ActiveRecord::Base
   def finalize
     update_attributes status: "completed", purchased_at: Date.today
     #mailer
+  end
+
+  def to_paypal_params
+    order_items.map(&:to_paypal_params)
+  end
+
+  def payment
+    @payment ||= payment_id && Payment.find(payment_id)
+  end
+
+  def create_payment
+    @payment = Payment.new( :order => self )
+    return @payment if @payment.create and update_attributes(payment_id: @payment.id, state: @payment.state)
+
+    errors.add :payment_method, @payment.error["message"] if @payment.error
+    return @payment
+  end
+
+  def execute(payer_id, payment_id)
+    return true if payment.present? and payment.execute(:payer_id => payer_id) and update_attributes(selling_mode: false, state: payment.state, payer_id: payer_id, payment_id: payment_id)
+    errors.add :description, payment.error.inspect
+    false
   end
 
 
