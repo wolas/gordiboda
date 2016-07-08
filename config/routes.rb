@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     root to: 'admin#index'
     resources :products
     resources :users
+    resources :orders
   end
 
 end

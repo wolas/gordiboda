@@ -23,13 +23,13 @@ class CartsController < ApplicationController
     if current_order.execute(params["PayerID"], params["paymentId"])
       current_order.finalize
       session[:order_id] = Order.create.id
-      render :order_complete
+      render :order_completed
     else
       redirect_to order_cancelled, :alert => current_order.payment.inspect
     end
   end
 
-  def order_complete
+  def order_completed
     session[:order_id] = Order.create.id
   end
 
@@ -39,7 +39,7 @@ class CartsController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:buyer_name, :buyer_email, :contributors, :status)
+    params.require(:order).permit(:buyer_name, :buyer_email, :contributors, :status, :payer_id, :payment_id)
   end
 
 end
