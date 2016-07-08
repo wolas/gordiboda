@@ -25,7 +25,6 @@ class Payment < PayPal::SDK::REST::Payment
   def to_params subtotal, items, urls, description = "Compra Gordi Boda"
     self.intent = "sale"
     self.payer.payment_method = "paypal"
-    self.experience_profile_id = "XP-KJ27-3NQ5-XQLC-GCVW"
     self.transactions = {
       :amount => {
         :total => sprintf("%0.2f", subtotal),
