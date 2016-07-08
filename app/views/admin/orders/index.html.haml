@@ -9,8 +9,6 @@
           %th Buyer Email
           %th Contributors
           %th Gifts
-          %th
-          %th
 
       - @orders.each do |order|
         %tbody
@@ -18,4 +16,4 @@
             %td= order.buyer_name
             %td= order.buyer_email
             %td= order.contributors
-            %td= order.order_items.map{|oi| oi.product.name}
+            %td= order.order_items.map{|oi| oi.product.name}.join(",")

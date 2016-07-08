@@ -9,13 +9,17 @@
           %th.left Email
           %th
 
-      - @users.each do |user|
-        %tbody
+
+      %tbody
+        - @users.each do |user|
           %tr.clickable{data: {url: url_for([:admin, user])}}
             %td.left= user.name
             %td.left= user.email
             - if user.id == current_user.id
               %td= link_to 'Edit', edit_admin_user_path(current_user.id)
+            - else
+              %td
+
 
       %tr.active
         %td.left
