@@ -1,24 +1,27 @@
-%table.shopping-cart
-  %tr
-    %th Producto
-    %th Cantidad
-    %th.right Precio/unidad
-    %th.right Total
-    %th
+%table.table.shopping-cart
+  %thead
+    %tr
+      %th Producto
+      %th Cantidad
+      %th.right Precio/unidad
+      %th.right Total
+      %th
 
   - @order_items.each do |order_item|
-    = form_for order_item, remote: true do |f|
-      %tr
-        %td= order_item.product.name
-        %td= f.number_field :quantity, min: 1, hide_label: true
-        %td= order_item.unit_price
-        %td= order_item.total_price
-        %td
-          = link_to "Borrar", order_item, method: :delete, remote: true
-          = f.submit "Actualizar"
+    %tbody
+      = form_for order_item, remote: true do |f|
+        %tr
+          %td= order_item.product.name
+          %td= f.number_field :quantity, min: 1, hide_label: true
+          %td= order_item.unit_price
+          %td= order_item.total_price
+          %td
+            = link_to "Borrar", order_item, method: :delete, remote: true
+            = f.submit "Actualizar"
 
   %tr
     %td{colspan: 4}
     %td.total
       Total:
       = current_order.subtotal
+      €

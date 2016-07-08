@@ -1,0 +1,21 @@
+%h1 Listing orders
+
+.row
+  .col-lg-7
+    %table.table
+      %thead
+        %tr
+          %th Buyer Name
+          %th Buyer Email
+          %th Contributors
+          %th Gifts
+          %th
+          %th
+
+      - @orders.each do |order|
+        %tbody
+          %tr
+            %td= order.buyer_name
+            %td= order.buyer_email
+            %td= order.contributors
+            %td= order.order_items.map{|oi| oi.product}

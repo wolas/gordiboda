@@ -1,0 +1,10 @@
+- hidden_fields ||= {}
+
+#search
+  = form_for :sale, url: url, method: :get do
+    = text_field_tag :find, nil, id: 'find', placeholder: "...", value: @query_string
+
+    - hidden_fields.each do |name, value|
+      = hidden_field_tag(name.to_sym, value)
+
+    = submit_tag "send", id: 'send'

@@ -1,20 +1,23 @@
-%p#notice= notice
+.container#product-card
+  .row
+    .col-sm-6.col-md-4
+      .thumbnail
+        %img
+          = image_tag(@product.picture.url(:medium))
+          .caption
+            %h3= @product.name
+            %p
+              Precio: #{@product.price}€
+            %p
+              Stock: #{@product.stock}
+            %a.card-link{:href => admin_products_path} Back
+            %a.card-link{:href => edit_admin_product_path(@product)} | Edit
 
-%p
-  %b Name:
-  = @product.name
-%p
-  %b Price:
-  = @product.price
-%p
-  %b Stock:
-  = @product.stock
-%p
-  %b Active:
-  = @product.active
 
-= image_tag(@product.picture.url(:medium))
 
-= link_to 'Edit', edit_admin_product_path(@product)
-\|
-= link_to 'Back', admin_products_path
+
+
+
+
+
+
