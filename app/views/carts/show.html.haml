@@ -1,25 +1,32 @@
 %section
   .container
     .row
-      .col-lg-4
+      .col-lg-12.sector
+        %h3 Lista de regalos
+        = render partial: "shopping_cart"
+
+    .row.well
+      .col-lg-12
         - if current_order.empty?
-          %h3 Carrito vacío
+          %h3.inner-title Carrito vacío
           %p
             Debes añadir artículos para poder continuar
         - else
-          %h3 Déjanos tus datos
+          %h3 Déjanos tus datos y tus mejores deseos
 
-          #order-form
+          .row.section
             = simple_form_for @order , url: pay_cart_path, method: :post do |f|
-              .form-inputs
-                = f.input :buyer_name, placeholder: "Nombre"
-                = f.input :buyer_email, placeholder: "Email"
-                = f.input :contributors, placeholder: "# Colaboradores"
-              .form-actions
-              = f.submit "Comprar", class: "button"
+              .col-lg-4
+                .form-inputs
+                  = f.input :buyer_name, placeholder: "Nombre"
+                  = f.input :buyer_email, placeholder: "Email"
+                  = f.input :contributors, placeholder: "# Colaboradores"
 
-      .col-lg-8
-        = render partial: "shopping_cart"
+
+              .col-lg-8
+                .form-actions
+                  = f.input :comment, placeholder: "No seas tímid@..."
+                  = f.submit "Comprar", class: "shop-btn"
 
 
 

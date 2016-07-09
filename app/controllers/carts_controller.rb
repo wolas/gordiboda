@@ -39,7 +39,7 @@ class CartsController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:buyer_name, :buyer_email, :contributors, :status, :payer_id, :payment_id)
+    params.require(:order).permit(:buyer_name, :buyer_email, :contributors, :status, :payer_id, :payment_id, :comment)
   end
 
 end

@@ -16,8 +16,8 @@
           %td= order_item.unit_price
           %td= order_item.total_price
           %td
-            = link_to "Borrar", order_item, method: :delete, remote: true
-            = f.submit "Actualizar"
+            = button_to "Borrar", order_item, method: :delete, remote: true, class: "button_link"
+            = f.submit "Actualizar", class: "button_link"
 
   %tr
     %td{colspan: 4}
