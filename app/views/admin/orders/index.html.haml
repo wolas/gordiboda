@@ -8,7 +8,8 @@
           %th Buyer Name
           %th Buyer Email
           %th Contributors
-          %th Gifts
+          %th Products
+          %th Total €
 
       - @orders.each do |order|
         %tbody
@@ -17,3 +18,4 @@
             %td= order.buyer_email
             %td= order.contributors
             %td= order.order_items.map{|oi| oi.product.name}.join(",")
+            %td= order.subtotal
