@@ -60,7 +60,7 @@ Rails.application.configure do
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      s3_bucket_name: Rails.application.secrets.s3_bucket_name,
+      bucket: Rails.application.secrets.bucket,
       access_key_id: Rails.application.secrets.access_key_id,
       secret_access_key: Rails.application.secrets.secret_access_key,
       s3_region: Rails.application.secrets.s3_region
