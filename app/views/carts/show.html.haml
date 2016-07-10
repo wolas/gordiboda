@@ -14,8 +14,8 @@
         - else
           %h3 Déjanos tus datos y tus mejores deseos
 
-          = simple_form_for @order , url: pay_cart_path, method: :post do |f|
-            .row.section
+          .row.section
+            = simple_form_for @order , url: pay_cart_path, method: :post do |f|
               .col-lg-4
                 .form-inputs
                   = f.input :buyer_name, placeholder: "Nombre"

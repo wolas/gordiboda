@@ -3,9 +3,6 @@ class Order < ActiveRecord::Base
 
   before_save :update_subtotal
 
-  validates_presence_of :buyer_name, :buyer_email, :contributors
-  validates_format_of :buyer_email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
-
   attr_accessor :return_url, :cancel_url
 
   def empty?
