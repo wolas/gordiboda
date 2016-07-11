@@ -15,6 +15,8 @@ class Order < ActiveRecord::Base
 
   def finalize
     update_attributes status: "completed", purchased_at: Date.today
+    @products = order_items.map{|oi| oi.product}
+    @products.map{|p| p.update_attributes(stock: (p.stock - 1))}
     #mailer
   end
 
