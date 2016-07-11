@@ -12,7 +12,7 @@
       = form_for order_item, remote: true do |f|
         %tr
           %td= order_item.product.name
-          %td= f.number_field :quantity, min: 1, hide_label: true
+          %td= f.number_field :quantity, min: 1, max: order_item.product.stock, hide_label: true
           %td= order_item.unit_price
           %td= order_item.total_price
           %td
