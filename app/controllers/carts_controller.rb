@@ -10,9 +10,7 @@ class CartsController < ApplicationController
     @order_items = @order.order_items
     @order.update_attributes(order_params)
     render :show and return unless @order.valid?
-
     # @order.save!
-
     @order.return_url = execute_paypal_cart_url
     @order.cancel_url = order_cancelled_cart_url
     redirect_to @order.payment.approve_url and return if @order.create_payment

@@ -4,7 +4,7 @@ class Admin::OrdersController < Admin::AdminController
   # GET /products
   # GET /products.json
   def index
-    @orders = Order.all
+    @orders = Order.all.where(status: 'completed')
   end
 
   # GET /products/1
