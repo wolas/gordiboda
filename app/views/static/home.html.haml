@@ -29,9 +29,9 @@
             = hidden_field_tag 'order_item[product_id]', p.id
             = hidden_field_tag 'order_item[quantity]', 1
             - if Rails.env.development?
-              = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='/assets/icon-hover.png'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
-            - else
-              = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='/assets/icon-hover.png'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+              = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='#{image_path('/assets/icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+
+
 
 / About Section
 %section#info.success
