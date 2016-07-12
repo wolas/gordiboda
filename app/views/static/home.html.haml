@@ -16,8 +16,12 @@
       .col-lg-12.text-center
         %h2 Lista de bodas
         %hr.star-primary
+    .row
+      .col-lg-12.show-more
+        %a{"aria-controls" => "collapseProducts", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseProducts"}
+          Ver más regalos
     .row.product-list
-      - @products.each do |p|
+      - @featured_products.each do |p|
         .col-sm-4.portfolio-item
           %p
             = p.name
@@ -30,6 +34,20 @@
             = hidden_field_tag 'order_item[quantity]', 1
             = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
 
+      #collapseProducts.collapse
+        .card.card-block
+          - @products.each do |p|
+            .col-sm-4.portfolio-item
+              %p
+                = p.name
+                |
+                = p.price
+                €
+
+              = form_tag(controller: :order_items, action: :create, remote: true) do
+                = hidden_field_tag 'order_item[product_id]', p.id
+                = hidden_field_tag 'order_item[quantity]', 1
+                = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
 
 
 
