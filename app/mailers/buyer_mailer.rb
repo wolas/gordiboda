@@ -3,7 +3,7 @@ class BuyerMailer < ApplicationMailer
   def success(email, name)
     @email = email
     @name = name
-    mail(to: @email, subject: 'Confirmación de compra')
+    mail(to: @email, subject: 'Confirmacion de compra')
   end
 
 end
