@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
     @products = order_items.map{|oi| oi.product}
     @products.map{|p| p.update_attributes(stock: (p.stock - 1))}
 
-    BuyerMailer.success(buyer_email, buyer_name).deliver_now
+    BuyerMailer.success(buyer_email, buyer_name).deliver_later
   end
 
   def to_paypal_params
