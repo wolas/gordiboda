@@ -1,4 +1,5 @@
 = form_for :static, url: url, method: :get do
-  = text_field_tag :find, nil, id: 'find', placeholder: "...", value: @query_string
+  = text_field_tag :find, nil, id: 'find', placeholder: "€", value: @query_string
 
-  = submit_tag "Buscar", id: 'send'
+  = submit_tag "Filtrar  |", id: 'send', class: 'button_link'
+  = link_to "Quitar filtro", static_home_path

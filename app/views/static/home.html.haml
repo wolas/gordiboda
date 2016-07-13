@@ -16,13 +16,11 @@
       .col-lg-12.text-center
         %h2 Lista de bodas
         %hr.star-primary
-    .row
-      .col-lg-12.show-more
-        %a{"aria-controls" => "collapseProducts", "aria-expanded" => "false", "data-toggle" => "collapse", :href => "#collapseProducts"}
-          Ver todos los regalos
 
     .row
-      .col-lg-12= render "search", url: search_static_index_path
+      .col-lg-12.budget-search
+        %h3 Presupuesto máximo
+        = render "search", url: search_static_index_path
 
 
     .row.product-list
@@ -88,3 +86,4 @@
         #contact-map
 
         %script(src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.secrets.google_api_key}&callback=initMap" async defer)
+
