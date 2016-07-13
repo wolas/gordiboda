@@ -1,0 +1,4 @@
+= form_for :static, url: url, method: :get do
+  = text_field_tag :find, nil, id: 'find', placeholder: "...", value: @query_string
+
+  = submit_tag "Buscar", id: 'send'
