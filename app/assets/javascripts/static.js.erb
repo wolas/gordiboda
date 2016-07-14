@@ -5,7 +5,6 @@ function initMap() {
   var printoria_hq = {lat: 43.016495, lng: -4.252605};
 
 
-
   var map = new google.maps.Map(document.getElementById('contact-map'), {
     zoom: 18,
     center: printoria_hq,
@@ -31,4 +30,16 @@ function initMap() {
 }
 
 
-
+$(document).ready(function () {
+  var size_li = $(".product-list li").size();
+  var x = 3;
+  $('.product-list li:lt('+x+')').show();
+  $('#show-more').click(function () {
+      x= (x+5 <= size_li) ? x+5 : size_li;
+      $('.product-list li:lt('+x+')').show();
+  });
+  $('#show-less').click(function () {
+      x=(x-5<0) ? 3 : x-5;
+      $('.product-list li').not(':lt('+x+')').hide();
+  });
+});

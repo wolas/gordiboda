@@ -23,19 +23,28 @@
         = render "search", url: search_static_index_path
 
 
-    .row.product-list
-      - @products.each do |p|
-        .col-sm-4.portfolio-item
-          %p
-            = p.name
-            |
-            = p.price
-            €
+    .row
+      %ul.product-list
+        - @products.each do |p|
+          .col-sm-4
+            %li.portfolio-item
+              %p
+                = p.name
+                |
+                = p.price
+                €
 
-          = form_tag(controller: :order_items, action: :create, remote: true) do
-            = hidden_field_tag 'order_item[product_id]', p.id
-            = hidden_field_tag 'order_item[quantity]', 1
-            = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+              = form_tag(controller: :order_items, action: :create, remote: true) do
+                = hidden_field_tag 'order_item[product_id]', p.id
+                = hidden_field_tag 'order_item[quantity]', 1
+                = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+
+    .row
+      .col-lg-12
+        %span#show-more Ver más regalos
+        |
+        %span#show-less Ver menos
+
 
 / About Section
 %section#info.success

@@ -1,0 +1,5 @@
+$(".shopping-cart").html("<%= j(render 'carts/shopping_cart') %>")
+$("#cart-body > .cart-row:last").toggle()
+$("#cart-body > .cart-row:last").slideDown('slow')
+$(".total-price").toggle()
+$(".total-price").fadeIn('slow')
