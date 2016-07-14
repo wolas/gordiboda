@@ -12,6 +12,11 @@ class OrderItem < ActiveRecord::Base
     unit_price * quantity
   end
 
+  def balance
+    balance = product.stock - quantity
+    product.update_attributes(stock: balance)
+  end
+
   def to_paypal_params
     {
       :name => product.name,

@@ -20,6 +20,7 @@ class CartsController < ApplicationController
   def execute_paypal
     if current_order.execute(params["PayerID"], params["paymentId"])
       current_order.finalize
+      current_order.order_items.map{|oi| oi.balance}
       session[:order_id] = Order.create.id
       render :order_completed
     else
