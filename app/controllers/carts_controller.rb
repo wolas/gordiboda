@@ -8,7 +8,7 @@ class CartsController < ApplicationController
   def pay
     @order = current_order
     @order_items = @order.order_items
-    @order.update_attributes(order_params)
+    @order.update_attributes(order_params.merge(selling_mode: true))
     render :show and return unless @order.valid?
     # @order.save!
     @order.return_url = execute_paypal_cart_url
@@ -37,7 +37,7 @@ class CartsController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:buyer_name, :buyer_email, :contributors, :status, :payer_id, :payment_id, :comment)
+    params.require(:order).permit(:buyer_name, :buyer_email, :contributors, :status, :payer_id, :payment_id, :comment, :selling_mode)
   end
 
 end

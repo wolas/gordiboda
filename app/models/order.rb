@@ -3,6 +3,9 @@ class Order < ActiveRecord::Base
 
   before_save :update_subtotal
 
+  validates_presence_of :buyer_name, :buyer_email, :contributors, if: :selling_mode?
+  validates_format_of :buyer_email, :with => Devise::email_regexp, if: :selling_mode?
+
   attr_accessor :return_url, :cancel_url
 
   def empty?
@@ -14,11 +17,11 @@ class Order < ActiveRecord::Base
   end
 
   def finalize
-    update_attributes status: "completed", purchased_at: Date.today
+    update_attributes selling_mode: false, status: "completed", purchased_at: Date.today
     @products = order_items.map{|oi| oi.product}
     @products.map{|p| p.update_attributes(stock: (p.stock - 1))}
 
-    BuyerMailer.success(buyer_email, buyer_name).deliver_later
+    # BuyerMailer.success(buyer_email, buyer_name).deliver_later
   end
 
   def to_paypal_params

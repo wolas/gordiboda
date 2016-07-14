@@ -33,7 +33,6 @@
                 |
                 = p.price
                 €
-
               = form_tag(controller: :order_items, action: :create, remote: true) do
                 = hidden_field_tag 'order_item[product_id]', p.id
                 = hidden_field_tag 'order_item[quantity]', 1
