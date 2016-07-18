@@ -37,27 +37,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #Sets Paperclip to upload images to Amazon S3
-  config.paperclip_defaults = {
-    storage: :s3,
-    s3_credentials: {
-      bucket: Rails.application.secrets.bucket,
-      access_key_id: Rails.application.secrets.access_key_id,
-      secret_access_key: Rails.application.secrets.secret_access_key,
-      s3_region: Rails.application.secrets.s3_region
-    }
-  }
-
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings   = {
-    address:  "smtp.gmail.com",
-    port: 587,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password,
-    authentication: "plain",
-    enable_starttls_auto: true,
-    openssl_verify_mode: "none"
-  }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-
 end

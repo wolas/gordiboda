@@ -23,5 +23,25 @@ module Gordiboda
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.serve_static_files = true
+
+    config.paperclip_defaults = {
+      storage: :s3,
+      s3_credentials: {
+        bucket: Rails.application.secrets.bucket,
+        access_key_id: Rails.application.secrets.access_key_id,
+        secret_access_key: Rails.application.secrets.secret_access_key,
+        s3_region: Rails.application.secrets.s3_region
+      }
+    }
+
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      user_name: Rails.application.secrets.email_provider_username,
+      password: Rails.application.secrets.email_provider_password,
+      authentication: "plain",
+      enable_starttls_auto: true,
+      openssl_verify_mode: "none"
+    }
   end
 end
