@@ -7,12 +7,8 @@ class StaticController < ApplicationController
 
   def search
     @query_string = params[:find]
-    unless @query_string == ''
-      @products = Product.where("price <= ? AND stock > ?", "#{@query_string}", 0)
-    else
-      @products = Product.all.where("stock > ?", 0)
-    end
-
+    @products = Product.where("stock > ?", 0)
+    @products = @products.where("price <= ?", @query_string) unless @query_string.empty?
     render :home
   end
 
