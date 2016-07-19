@@ -1,16 +1,32 @@
-%section#portfolio
-  .container
-    .row
-      %ul.product-list
-        - @products.each do |p|
-          .col-sm-4
-            %li.portfolio-item
-              %p
-                = p.name
-                |
-                = p.price
-                €
-              = form_tag(controller: :order_items, action: :create, remote: true) do
-                = hidden_field_tag 'order_item[product_id]', p.id
-                = hidden_field_tag 'order_item[quantity]', 1
-                = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+%section
+  %section#portfolio
+    .container
+      .row
+        .col-lg-12.text-center
+          %h2 Regalos disponibles
+          %hr.star-primary
+
+      .row
+        .col-lg-12.text-center
+          %span.skills
+            %p Esta es la lista de regalos que se corresponde con tus criterios de búsqueda.
+            %p ¡Haz clic en el que más te guste para añadirlo al carrito de compra!
+
+      .row.text-center
+        %ul.product-list
+          - @products.each do |p|
+            .product-card
+              %li.portfolio-item
+                %p
+                  = p.name
+                  |
+                  = p.price
+                  €
+                = form_tag(controller: :order_items, action: :create, remote: true) do
+                  = hidden_field_tag 'order_item[product_id]', p.id
+                  = hidden_field_tag 'order_item[quantity]', 1
+                  = image_submit_tag(p.picture.url(:medium), class: "icon", class: "img-responsive", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+
+      .row
+        .col-lg-12.text-center
+          %p= link_to 'Cambiar filtro', :back
