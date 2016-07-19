@@ -6,6 +6,7 @@
       %th.right Precio/unidad
       %th.right Total
       %th
+      %th
 
   - @order_items.each do |order_item|
     %tbody
@@ -14,9 +15,10 @@
         %td= f.number_field :quantity, min: 1, max: order_item.product.stock, hide_label: true
         %td= order_item.unit_price
         %td= order_item.total_price
-        %td
-          = button_to "Borrar", order_item, method: :delete, remote: true, class: "button_link"
+        %td{:width => "170px"}
           = f.submit "Actualizar", class: "button_link"
+
+      %td{:width => "170px"}= button_to "Borrar", order_item, method: :delete, remote: true, class: "button_link"
 
 
   %tr
@@ -25,3 +27,4 @@
       Total:
       = current_order.subtotal
       €
+

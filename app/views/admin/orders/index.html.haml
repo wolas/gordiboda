@@ -14,6 +14,7 @@
             %th Buyer Email
             %th Contributors
             %th Products
+            %th Quantity
             %th Comments
             %th Total €
 
@@ -23,6 +24,7 @@
               %td= order.buyer_name
               %td= order.buyer_email
               %td= order.contributors
-              %td= order.order_items.map{|oi| oi.product.name}.join(",")
+              %td= order.order_items.map{|oi| oi.product.name}.join(" | ")
+              %td= order.order_items.map{|oi| oi.quantity}.join(" | ")
               %td= order.comment
               %td= order.subtotal
