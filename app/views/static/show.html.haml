@@ -6,27 +6,38 @@
           %h2 Regalos disponibles
           %hr.star-primary
 
-      .row
-        .col-lg-12.text-center
-          %span.skills
-            %p Esta es la lista de regalos que se corresponde con tus criterios de búsqueda.
-            %p ¡Haz clic en el que más te guste para añadirlo al carrito de compra!
+      - if @products.count == 0
+        .row
+          .col-lg-12.text-center
+            %span.skills
+              %p En este momento, no hay ningún regalo con un precio inferior a tu filtro.
+              %p
+                Puedes hacer
+                = link_to 'clic aquí', :back
+                para volver atrás y cambiar tus criterios de búsqueda.
 
-      .row.text-center
-        %ul.product-list
-          - @products.each do |p|
-            .product-card
-              %li.portfolio-item
-                %p
-                  = p.name
-                  |
-                  = p.price.truncate
-                  €
-                = form_tag(controller: :order_items, action: :create, remote: true) do
-                  = hidden_field_tag 'order_item[product_id]', p.id
-                  = hidden_field_tag 'order_item[quantity]', 1
-                  = image_submit_tag(p.picture.url(:medium), class: "icon", class: "img-responsive", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+      - else
+        .row
+          .col-lg-12.text-center
+            %span.skills
+              %p Esta es la lista de regalos que se corresponde con tus criterios de búsqueda.
+              %p ¡Haz clic en el que más te guste para añadirlo al carrito de compra!
 
-      .row
-        .col-lg-12.text-center
-          %p= link_to 'Cambiar filtro', :back
+        .row.text-center
+          %ul.product-list
+            - @products.each do |p|
+              .product-card
+                %li.portfolio-item
+                  %p
+                    = p.name
+                    |
+                    = p.price.truncate
+                    €
+                  = form_tag(controller: :order_items, action: :create, remote: true) do
+                    = hidden_field_tag 'order_item[product_id]', p.id
+                    = hidden_field_tag 'order_item[quantity]', 1
+                    = image_submit_tag(p.picture.url(:medium), class: "icon", class: "img-responsive", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
+
+        .row
+          .col-lg-12.text-center
+            %p= link_to 'Cambiar filtro', :back
