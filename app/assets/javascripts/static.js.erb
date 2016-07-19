@@ -29,17 +29,3 @@ function initMap() {
   });
 }
 
-
-$(document).ready(function () {
-  var size_li = $(".product-list li").size();
-  var x = 3;
-  $('.product-list li:lt('+x+')').show();
-  $('#show-more').click(function () {
-      x= (x+5 <= size_li) ? x+5 : size_li;
-      $('.product-list li:lt('+x+')').show();
-  });
-  $('#show-less').click(function () {
-      x=(x-5<0) ? 3 : x-5;
-      $('.product-list li').not(':lt('+x+')').hide();
-  });
-});

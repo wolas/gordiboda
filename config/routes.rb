@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :static do
     collection do
       get :search
+      get :show
     end
   end
 

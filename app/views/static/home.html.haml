@@ -18,31 +18,14 @@
         %hr.star-primary
 
     .row
+      .col-lg-12
+        %span.skills
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas hendrerit ligula magna. Nunc elit eros, rhoncus eu molestie nec, hendrerit a ligula. Maecenas ac urna tincidunt, pretium ex nec, eleifend massa. Phasellus pulvinar tortor ut aliquam consectetur. Donec eget venenatis dolor, a porta massa
+
+    .row
       .col-lg-12.budget-search
         %h3 Presupuesto máximo
-        = render "search", url: search_static_index_path
-
-
-    .row
-      %ul.product-list
-        - @products.each do |p|
-          .col-sm-4
-            %li.portfolio-item
-              %p
-                = p.name
-                |
-                = p.price
-                €
-              = form_tag(controller: :order_items, action: :create, remote: true) do
-                = hidden_field_tag 'order_item[product_id]', p.id
-                = hidden_field_tag 'order_item[quantity]', 1
-                = image_submit_tag(p.picture.url(:medium), class: "icon", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
-
-    .row
-      .col-lg-12.btns-list
-        %span#show-more Ver más regalos
-        |
-        %span#show-less Ver menos
+        = render "search", url: static_index_path
 
 
 / About Section
