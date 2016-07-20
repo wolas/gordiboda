@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   get 'static/home'
   root "static#home"
 
-  resources :products, only: [:index]
-
   resources :order_items, only: [:create, :update, :destroy]
 
   resources :order, only: [:create, :update]
@@ -25,10 +23,9 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  resources :static do
+  resources :static, only: [:index, :show] do
     collection do
       get :search
-      get :show
     end
   end
 

@@ -6,10 +6,14 @@ class StaticController < ApplicationController
   def search
   end
 
-  def show
+  def index
     @query_string = params[:find]
     @products = Product.where("stock > ?", 0).order(price: :desc)
     @products = @products.where("price <= ?", @query_string) unless @query_string.empty?
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
 

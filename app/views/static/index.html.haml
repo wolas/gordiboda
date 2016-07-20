@@ -1,0 +1,41 @@
+%section
+  %section#portfolio
+    .container
+      .row
+        .col-lg-12.text-center
+          %h2 Regalos disponibles
+          %hr.star-primary
+
+      - if @products.count == 0
+        .row
+          .col-lg-12.text-center
+            %span.skills
+              %p En este momento, no hay ningún regalo con un precio inferior a tu filtro.
+              %p
+                Puedes hacer
+                = link_to 'clic aquí', :back
+                para volver atrás y cambiar tus criterios de búsqueda.
+
+      - else
+        .row
+          .col-lg-12.text-center
+            %span.skills
+              %p Esta es la lista de regalos que se corresponde con tus criterios de búsqueda.
+              %p ¡Haz clic en el que más te guste para ver más detalles!
+
+        .row.text-center
+          %ul.product-list
+            - @products.each do |p|
+              .product-card
+                %li.portfolio-item
+                  %p
+                    = p.name
+                    |
+                    = p.price.truncate
+                    €
+                    = link_to image_tag(p.picture.url(:medium), class: "img-responsive", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'"), static_path(p.id)
+
+
+        .row
+          .col-lg-12.text-center
+            %p= link_to 'Cambiar filtro', root_path

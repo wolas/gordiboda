@@ -1,43 +1,20 @@
 %section
-  %section#portfolio
+  %section
     .container
       .row
-        .col-lg-12.text-center
-          %h2 Regalos disponibles
-          %hr.star-primary
+        .col-lg-12#product-title
+          %h2= @product.name
+      .row
+        .col-lg-4= image_tag(@product.picture.url(:medium), class: 'img-responsive')
+        .col-lg-8
+          %p
+            = @product.description
+          = form_tag(controller: :order_items, action: :create, remote: true) do
+            = hidden_field_tag 'order_item[product_id]', @product.id
+            = hidden_field_tag 'order_item[quantity]', 1
+            = submit_tag "¡Lo quiero!", class: "shop-btn"
+      .row
+        .col-lg-12
+          = link_to "Atrás", :back
 
-      - if @products.count == 0
-        .row
-          .col-lg-12.text-center
-            %span.skills
-              %p En este momento, no hay ningún regalo con un precio inferior a tu filtro.
-              %p
-                Puedes hacer
-                = link_to 'clic aquí', :back
-                para volver atrás y cambiar tus criterios de búsqueda.
 
-      - else
-        .row
-          .col-lg-12.text-center
-            %span.skills
-              %p Esta es la lista de regalos que se corresponde con tus criterios de búsqueda.
-              %p ¡Haz clic en el que más te guste para añadirlo al carrito de compra!
-
-        .row.text-center
-          %ul.product-list
-            - @products.each do |p|
-              .product-card
-                %li.portfolio-item
-                  %p
-                    = p.name
-                    |
-                    = p.price.truncate
-                    €
-                  = form_tag(controller: :order_items, action: :create, remote: true) do
-                    = hidden_field_tag 'order_item[product_id]', p.id
-                    = hidden_field_tag 'order_item[quantity]', 1
-                    = image_submit_tag(p.picture.url(:medium), class: "icon", class: "img-responsive", :onmouseover => "this.src='#{image_path('icon-hover.png')}'", :onmouseout => "this.src='#{p.picture.url(:medium)}'")
-
-        .row
-          .col-lg-12.text-center
-            %p= link_to 'Cambiar filtro', :back

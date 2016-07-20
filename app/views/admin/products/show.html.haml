@@ -10,6 +10,8 @@
               Precio: #{@product.price}€
             %p
               Stock: #{@product.stock}
+            %p
+              Description: #{@product.description}
             %a.card-link{:href => admin_products_path} Back
             %a.card-link{:href => edit_admin_product_path(@product)} | Edit
 

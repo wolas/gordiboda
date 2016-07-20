@@ -1,13 +1,14 @@
 %h1 Listing products
 
 .row
-  .col-lg-7
+  .col-lg-10
     %table.table
       %thead
         %tr
           %th Name
           %th Price
           %th Stock
+          %th Description
           %th
           %th
           %th
@@ -18,12 +19,14 @@
             %td= product.name
             %td= product.price
             %td= product.stock
+            %td= product.description
             %td= link_to 'Show', [:admin, product]
             %td= link_to 'Edit', edit_admin_product_path(product)
             %td= link_to 'Destroy', [:admin, product], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
       %tr.active
+        %td
         %td
         %td
         %td
