@@ -13,8 +13,7 @@
             = hidden_field_tag 'order_item[product_id]', @product.id
             = hidden_field_tag 'order_item[quantity]', 1
             = submit_tag "¡Lo quiero!", class: "shop-btn"
-      .row
-        .col-lg-12
-          = link_to "Atrás", :back
+
+            = link_to "Seguir mirando", :back, class: "next-btn"
 
 
