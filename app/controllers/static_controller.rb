@@ -9,7 +9,7 @@ class StaticController < ApplicationController
   def index
     @query_string = params[:find]
     @products = Product.where("stock > ?", 0).order(price: :desc)
-    @products = @products.where("price <= ?", @query_string) unless @query_string.empty?
+    @products = @products.where("price <= ?", @query_string.to_i) unless @query_string.empty?
   end
 
   def show
